@@ -22,6 +22,13 @@ import {Link} from "react-router-dom";
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import {Typography} from "@material-ui/core";
 import useStyles from "../../Styles/dashboard_style";
+import IconButton from '@material-ui/core/IconButton';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import ReplyIcon from '@material-ui/icons/Reply';
+import TicketImage from "../../Components/Ticket_image";
+import Add_new_ticket from "../../Components/Dialogs/Add_new_ticket";
+import Add_new_reply from "../../Components/Dialogs/Add_new_reply";
+
 const TicketPage = () => {
     const [url,seturl]=useState<string>("");
     const classes =useStyles();
@@ -34,9 +41,7 @@ const TicketPage = () => {
     return (
         <div style={{display:"flex",margin:"50px 5px 5px 5px"}}>
             <div style={{width:"22%"}}>
-                <Button startIcon={<MessageIcon/>} style={{boxShadow:"unset",width:"100%",padding:"10px 15px",color:"white"}} variant="contained" color="secondary" >
-                    New ticket
-                </Button>
+                <Add_new_ticket/>
                 <Divider style={{marginTop:"10px",marginBottom:"10px"}} variant="middle" />
 
 
@@ -139,7 +144,7 @@ const TicketPage = () => {
 
 
             </div>
-            <div style={{width:"33%"}}>
+            <div style={{width:"35%"}}>
                 <Switch>
                     <Route exact path={"/dashboard/ticket"} component={All_ticket} />
                     <Route exact path={"/dashboard/ticket/send"} component={Send_ticket} />
@@ -150,7 +155,89 @@ const TicketPage = () => {
                 </Switch>
 
             </div>
-            <div style={{width:"45%"}}>a</div>
+            <div style={{width:"43%",paddingLeft:"40px",paddingRight:"40px"}}>
+                <div style={{display:"flex",justifyContent:"space-between"}}>
+                    <div style={{display:"flex",alignItems:"center"}}>
+                        <Typography>92204623</Typography>
+                    </div>
+
+                    <div style={{display:"flex",alignItems:"center"}}>
+
+                        <Typography>2000/01/14</Typography>
+
+                        <IconButton style={{marginLeft:"5px"}} aria-label="delete">
+                            <FavoriteIcon fontSize="small" />
+                        </IconButton>
+                    </div>
+                </div>
+                <div style={{backgroundColor:"#f4f6f8",marginTop:"20px"}}>
+                    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",backgroundColor:"rgb(19, 0, 62)",color:"white",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
+
+                        <div style={{display:"flex",alignItems:"center"}}>
+                            <Avatar style={{margin:"10px"}} alt="Remy Sharp" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg" />
+                            <div>
+                                <Typography style={{fontSize:"14px"}}>Mahdi </Typography>
+                                <Typography style={{fontSize:"14px"}}>Ticket to mehran </Typography>
+                            </div>
+                        </div>
+                        <Add_new_reply/>
+
+
+                    </div>
+
+                    <div style={{padding:"15px"}}>
+                        <Typography style={{fontSize:"14px"}}>
+                            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
+                        </Typography>
+                        <Typography style={{marginTop:"10px",fontSize:"15px",fontWeight:"bold"}}>
+                            1 Attachments
+                        </Typography>
+                    </div>
+
+                    <div style={{padding:"10px 15px",display:"flex"}}>
+                        <TicketImage/>
+                        <TicketImage/>
+                        <TicketImage/>
+                    </div>
+
+
+
+                </div>
+
+                <div style={{backgroundColor:"#f4f6f8",marginTop:"20px"}}>
+                    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",backgroundColor:"rgb(19, 0, 62)",color:"white",borderTopLeftRadius:"10px",borderTopRightRadius:"10px"}}>
+
+                        <div style={{display:"flex",alignItems:"center"}}>
+                            <Avatar style={{margin:"10px"}} alt="Remy Sharp" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg" />
+                            <div>
+                                <Typography style={{fontSize:"14px"}}>Mahdi </Typography>
+                                <Typography style={{fontSize:"14px"}}>Ticket to mehran </Typography>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div style={{padding:"15px"}}>
+                        <Typography style={{fontSize:"14px"}}>
+                            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
+                        </Typography>
+                        <Typography style={{marginTop:"10px",fontSize:"15px",fontWeight:"bold"}}>
+                            1 Attachments
+                        </Typography>
+                    </div>
+
+                    <div style={{padding:"10px 15px",display:"flex"}}>
+                        <TicketImage/>
+                        <TicketImage/>
+                        <TicketImage/>
+                    </div>
+
+
+
+                </div>
+
+            </div>
         </div>
     );
 };
